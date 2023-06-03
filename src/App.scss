@@ -1,0 +1,35 @@
+.app{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background-image: url("../assets/images/background.png");
+    background-position: center;
+    background-size: cover;
+}
+.container{
+    position: relative;
+    width: 30%;
+    height: 70%;
+    
+    img{
+        position: absolute;
+        top: 0;
+        right: 0;
+    
+        max-width: 100px;
+    }
+}
+.app-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content {
+    height: 60vh;
+    background-color: #fff;
+
+    border-radius: 15px;
+}
