@@ -1,26 +1,28 @@
-import { useState } from 'react'
-import './App.scss'
-import './index.css'
+import './Home.scss'
 
 function Home() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className="app">
-        <div className="container">
-          <img src="../assets/images/undraw_adventure_4hum 1.svg" className="app-logo" alt="logo" />
-          <div className="app-header">
-            <h2>COUNTRY QUIZ</h2>
-          </div>
-
-          <div className="content">
-            
-          </div>
-        </div>
+    <div className="wrapper">
+      <div className="head">
+        <h2>Kuala lumpur is the capitol of</h2>
       </div>
-    </>
+
+      <div className="answers">
+        <ul>
+            <li><span className="highlight">A</span>Vietnam</li>
+            <li><span className="highlight">B</span>Malaysia</li>
+            <li><span className="highlight">C</span>Sweden</li>
+            <li><span className="highlight">D</span>Poland</li>
+        </ul>
+
+        <div className="next-btn">
+          <input type="submit" value="Next" />
+        </div>
+
+      </div>  
+    </div>
   )
 }
 
-export default App;
+export default Home;
