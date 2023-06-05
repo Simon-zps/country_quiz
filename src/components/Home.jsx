@@ -6,6 +6,8 @@ function Home({countriesData}) {
   const [capital, setCapital] = useState("");
   const [rightCountry, setRightCountry] = useState("");
   const [answers, setAnswers] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     function getRandomAnswers() {
@@ -16,7 +18,7 @@ function Home({countriesData}) {
         // get 4 random countries
         while (list.length < 4) {
           const randomIndex = Math.floor(Math.random() * countries.length);
-          if (!list.includes(countries[randomIndex])) {
+          if (!list.includes(countries[randomIndex]) && countriesData[countries[randomIndex]].length < 15) {
             list.push(countries[randomIndex]);
             console.log(countries[randomIndex]);
           }
@@ -31,13 +33,30 @@ function Home({countriesData}) {
         setCapital(countriesData[correctAnswer]);
     }
 
-    if (countriesData && answers.length === 0) {
+    if (countriesData) {
       getRandomAnswers();
     }
 
-  }, [countriesData]); // Removed answers.length as a dependency
+  }, [countriesData, count]); // Removed answers.length as a dependency
    
   
+  const handleOptionSelect = (index) => {
+    setSelectedOption(index);
+  };
+
+  const handleNext = () => {
+
+    if (selectedOption != null) {
+      if (answers[selectedOption] === rightCountry) {
+        console.log("RIGHT");
+      } else {
+        console.log("WRONG");
+      }
+      setSelectedOption(null);
+      setCount(prevCount => prevCount + 1);
+      console.log(count);
+    }
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -50,15 +69,15 @@ function Home({countriesData}) {
           {answers.map((country, index) => { // Included index as a parameter
             const options = ["A", "B", "C", "D"];
             return (
-              <li key={index}>
+              <li key={index} onClick={() => handleOptionSelect(index)} className={selectedOption === index ? classes.selected : ''}>
                 <span className={classes.highlight}>{options[index]}</span>{country}
               </li>
             );
           })}
         </ul>
 
-        <div className={classes.btn}>
-          <input type="submit" value="Next"/>
+        <div className={classes.btn} onClick={handleNext}>
+          <input type="submit" value="Next" disabled={selectedOption === null || selectedOption === undefined}/>
         </div>
       
       </div>  
