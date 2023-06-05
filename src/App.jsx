@@ -7,8 +7,8 @@ import Result from './components/Result';
 function App() {
   const [result, setResult] = useState(false);
   const [countriesData, setCountriesData] = useState(null);
-
-
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  
   useEffect(() => {
     async function getAllCountries() {
       const url = `https://restcountries.com/v3.1/region/europe?fields=name,capital,currencies`;
@@ -41,6 +41,11 @@ function App() {
     getAllCountries();
   
   }, []);
+
+  const handleResult = (correctOnes) => {
+    setResult(true);
+    setCorrectAnswers(correctOnes);
+  }
   
   return (
     <>
@@ -54,8 +59,8 @@ function App() {
 
           <div className="content">
             {result ? 
-                <Result setResult={setResult} /> : 
-                countriesData && <Home countriesData={countriesData} />
+                <Result setResult={setResult} correctAnswers={correctAnswers}/> : 
+                countriesData && <Home countriesData={countriesData} handleResult={handleResult}/>
             }
           </div>
 

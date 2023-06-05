@@ -1,6 +1,6 @@
 import classes from './Result.module.scss'
 
-function Result() {
+function Result({correctAnswers}) {
 
   return (
     <div className={classes.wrapper}>
@@ -10,7 +10,7 @@ function Result() {
     
         <div className={classes.content}>
             <h1>Results</h1>
-            <p>You got <span className={classes.highlight}>2</span> correct answers</p>
+            <p>You got <span className={classes.highlight}>{correctAnswers}</span> correct answers</p>
         </div>
 
         <div className={classes.btn}>
