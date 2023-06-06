@@ -23,10 +23,14 @@
 
         p{
             margin-top: 10px;
+            font-size: larger;
 
             .highlight{
                 color: #16e616;
-                font-size: larger;
+            }
+            
+            .highlightRed{
+                color: #e61616;
             }
         }
     }

@@ -94,7 +94,7 @@ function Home({countriesData, handleResult}) {
         </ul>
 
         <div className={classes.btn} onClick={handleNext}>
-          <input type="submit" value="Next" disabled={selectedOption === null || selectedOption === undefined}/>
+          <input type="submit" value="Next" disabled={selectedOption === null || selectedOption === undefined} className={selectedOption !== null ? classes.inputReady : ''} />
         </div>
       
       </div>  

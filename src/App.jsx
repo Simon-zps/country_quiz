@@ -43,8 +43,13 @@ function App() {
   }, []);
 
   const handleResult = (correctOnes) => {
-    setResult(true);
-    setCorrectAnswers(correctOnes);
+    if(result){
+      setResult(false);
+    }else{
+      setResult(true);
+      setCorrectAnswers(correctOnes);
+    }
+  
   }
   
   return (
@@ -59,7 +64,7 @@ function App() {
 
           <div className="content">
             {result ? 
-                <Result setResult={setResult} correctAnswers={correctAnswers}/> : 
+                <Result handleResult={handleResult} correctAnswers={correctAnswers}/> : 
                 countriesData && <Home countriesData={countriesData} handleResult={handleResult}/>
             }
           </div>
