@@ -10,7 +10,7 @@
 }
 .container{
     position: relative;
-    width: 30%;
+    width: 35%;
     height: 70%;
     
 }
@@ -33,3 +33,44 @@
     background-color: #fff;
     border-radius: 15px;
 }
+
+/* Media Query for screens smaller than 1000px */
+@media (max-width: 1250px) {
+    .container {
+      width: 40%;
+    }
+    
+    .app-header img {
+        max-width: 85px;
+      }
+
+    .content {
+      padding-bottom: 20px;
+    }
+  }
+  
+  /* Media Query for screens smaller than 768px */
+  @media (max-width: 930px) {
+    .container {
+      width: 60%;
+    }
+  
+    .app-header img {
+      max-width: 80px;
+    }
+
+  }
+  
+  /* Media Query for screens smaller than 600px */
+  @media (max-width: 750px) {
+    .container {
+      width: 67%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      width: 90%;
+    }
+  
+  }
