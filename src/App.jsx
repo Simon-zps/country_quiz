@@ -3,6 +3,7 @@ import './App.scss'
 import './index.css'
 import Home from './components/Home';
 import Result from './components/Result';
+import stuImg from '/assets/images/undraw_adventure_4hum 1.svg'
 
 function App() {
   const [result, setResult] = useState(false);
@@ -59,7 +60,7 @@ function App() {
           
           <div className="app-header">
             <h2>COUNTRY QUIZ</h2>
-            <img src="../assets/images/undraw_adventure_4hum 1.svg" className="app-logo" alt="logo" />
+            <img src={stuImg} className="app-logo" alt="logo" />
           </div>
 
           <div className="content">

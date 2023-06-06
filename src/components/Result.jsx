@@ -1,11 +1,12 @@
 import classes from './Result.module.scss'
+import resultImage from '/assets/images/winner.svg'
 
 function Result({correctAnswers, handleResult}) {
 
   return (
     <div className={classes.wrapper}>
         <div className={classes.logo}>
-            <img src="../assets/images/winner.svg" className="app-logo" alt="logo" />
+            <img src={resultImage} className="app-logo" alt="logo" />
         </div>
     
         <div className={classes.content}>
